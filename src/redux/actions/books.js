@@ -1,9 +1,6 @@
 import axios from "axios";
 import {authorizationAdmin} from "../../helpers/token"
 
-
-const url = process.env.REACT_APP_BASE_URL;
-
 export const typesBooks = {
   GET_ALL_BOOKS: "GET_ALL_BOOKS",
   SEARCH_BOOKS: "SEARCH_BOOKS",
@@ -21,7 +18,7 @@ export const getBooksAdmin = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(
-        "http://localhost:3001/api/books/user/admin",
+        "https://bookflix-back.herokuapp.com/api/books/user/admin",
         authorizationAdmin()
       );
       return dispatch({
@@ -38,7 +35,7 @@ export const searchBooks = (search) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/api/books/user/admin?name=${search}`,
+        `https://bookflix-back.herokuapp.com/api/books/user/admin?name=${search}`,
         authorizationAdmin()
       );
       return dispatch({
@@ -61,7 +58,7 @@ export const getBookDetails = (id) => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(
-        `http://localhost:3001/api/books/user/admin/${id}`,
+        `https://bookflix-back.herokuapp.com/api/books/user/admin/${id}`,
         authorizationAdmin()
       );
       return dispatch({
@@ -123,7 +120,7 @@ export const showSearchBook = (payload) => {
 export const postBook = (payload) => {
   return (dispatch) => {
     return axios
-      .post("http://localhost:3001/api/books", payload , authorizationAdmin())
+      .post("https://bookflix-back.herokuapp.com/api/api/books", payload , authorizationAdmin())
       .then((response) => {
         dispatch({
           type: typesBooks.POST_BOOK,
@@ -139,7 +136,7 @@ export const postBook = (payload) => {
 export const deleteBook = (id) => {
   return (dispatch) => {
     return axios
-      .delete(`http://localhost:3001/api/books/user/admin/${id}`,authorizationAdmin())
+      .delete(`https://bookflix-back.herokuapp.com/api/books/user/admin/${id}`,authorizationAdmin())
       .then((response) => {
         dispatch({
           type: typesBooks.DELETE_BOOK,

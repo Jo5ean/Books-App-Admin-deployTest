@@ -10,7 +10,7 @@ export const initialState = {
 const cases = {};
 
 cases[typesUser.GET_ALL_USERS] = (initialState, payload) =>{
-  const filtered = payload.filter((user)=> user.plan != "NOT_SUBSCRIBED");
+  const filtered = payload.filter((user)=> user.plan !== "NOT_SUBSCRIBED");
   return ({
   ...initialState,
   allUser: [...filtered],

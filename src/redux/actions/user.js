@@ -1,7 +1,5 @@
 import axios from "axios";
 import {authorizationAdmin} from "../../helpers/token"
-const url = process.env.REACT_APP_BASE_URL;
-
 
 // const authorizationAdmin= {
 //   headers: {
@@ -35,7 +33,7 @@ export const getUsers = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(
-        "http://localhost:3001/api/users",
+        "https://bookflix-back.herokuapp.com/api/users",
         authorizationAdmin()
       );
      // console.log("data", data);
@@ -52,7 +50,7 @@ export const getUsers = () => {
 export const postUser = (user) => {
   return (dispatch) => {
     return axios
-      .post("http://localhost:3001/api/users", user, authorizationAdmin)
+      .post("https://bookflix-back.herokuapp.com/api/users", user, authorizationAdmin)
       .then((response) => {
         dispatch({
           type: typesUser.POST_USER,
@@ -68,7 +66,7 @@ export const getUserById = (id) => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(
-        `http://localhost:3001/api/users/${id}`,
+        `https://bookflix-back.herokuapp.com/api/users/${id}`,
         authorizationAdmin()
       );
       return dispatch({
@@ -86,7 +84,7 @@ export const deleteUser = (id) => {
   try {
     return async (dispatch) => {
       const { data } = await axios.delete(
-        `http://localhost:3001/api/users/admin/${id}`,
+        `https://bookflix-back.herokuapp.com/api/users/admin/${id}`,
         authorizationAdmin()
       )
       //  console.log('data con id', id)
@@ -104,7 +102,7 @@ export const deleteUser = (id) => {
   export const mailUsers = (input)=>{
    
     return (dispatch) => {
-      return axios.post('http://localhost:3001/api/users/admin/mail',input, authorizationAdmin())
+      return axios.post('https://bookflix-back.herokuapp.com/api/users/admin/mail',input, authorizationAdmin())
       
         .then(response => {
          
@@ -125,7 +123,7 @@ export const deleteUser = (id) => {
 export const getUserByMail = (email) => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/users/admin/mail/${email}`,  authorizationAdmin())
+      .get(`https://bookflix-back.herokuapp.com/api/users/admin/mail/${email}`,  authorizationAdmin())
       .then((response) => {
         dispatch({
           
@@ -143,7 +141,7 @@ export const getUserByMail = (email) => {
 export const changeRol = (id) => {
   return (dispatch) => {
     return axios
-      .put('http://localhost:3001/api/users/admin/modify',{id},  authorizationAdmin())
+      .put('https://bookflix-back.herokuapp.com/api/users/admin/modify',{id},  authorizationAdmin())
       
       .then((response) => {
         dispatch({

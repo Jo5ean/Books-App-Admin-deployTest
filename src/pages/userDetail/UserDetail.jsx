@@ -1,10 +1,7 @@
 import React from "react";
 import "./UserDetail.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
-import {Link} from 'react-router-dom'
  import { useDispatch, useSelector } from "react-redux";
   import { getUserById} from "../../redux/actions/user";
   import { useEffect } from "react";

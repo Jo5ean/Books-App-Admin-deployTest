@@ -1,6 +1,4 @@
 import { typesAuthors } from "../actions/authors";
-import {useSelector } from "react-redux";
-
 
 export const initialState = {
   allAthors: [],
