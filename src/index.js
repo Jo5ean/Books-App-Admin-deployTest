@@ -13,7 +13,7 @@ ReactDOM.render(
         <Auth0Provider
           domain="dev-0h7i5plo.us.auth0.com"
           clientId="ZLlbxCeLpHsxoe4tMV6zUQwBJINkyzen"
-          redirectUri="https://bookflix-admin.vercel.app/#/home"
+          redirectUri="https://bookflix-admin.vercel.app/"
           audience="secreto"
         >
           <App />
